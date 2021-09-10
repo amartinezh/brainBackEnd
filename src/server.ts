@@ -27,5 +27,5 @@ const HOST = `${process.env.HOST}`
 const server = http.createServer(app);
 
 server.listen(PORT, () => {
-    console.log('ETLBackEnd server listening on port ' + PORT);
+    console.log('Brain server listening on port ' + PORT);
 })

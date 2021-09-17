@@ -19,12 +19,14 @@
 
 import { Request, Response } from "express";
 import { PeopleDAO } from "../repository/IndustryBackDB/peopleDAO";
+import { UserDAO } from "../repository/IndustryBackDB/userDAO";
 import { Token } from "../models/interfaces/token.interface";
 import { ErrorEnum } from "../models/ETLBackEnd/error";
 import * as jwt from 'jsonwebtoken'
 //import { } from "express-jwt";
 
 let people = new PeopleDAO();
+let user = new UserDAO();
 
 export class AuthController {
 	/*-------------------------------- app --------------------------------------------------------*/
@@ -32,7 +34,9 @@ export class AuthController {
 	public async valUser(req: Request, res: Response, next) {
 		try {
 
-			res.send(await people.val(req.body.id, req.body.apppassword));
+			// res.send(await people.val(req.body.id, req.body.apppassword));
+
+			res.send(await user.val(req.body.email, req.body.apppassword));
 
 			/* var result = await people.val(req.body.id, req.body.apppassword).then((successMessage) => {
 				console.log("¡Sí! " + successMessage);

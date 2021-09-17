@@ -23,6 +23,8 @@ import * as bodyParser from "body-parser";
 import { DataBaseService } from './db/dev/dataBaseService';
 import { PeopleRoutes } from "./routes/peopleRoutes";
 import { AuthRoutes } from "./routes/authRoutes";
+import { UserRoutes } from "./routes/userRoutes";
+import { AdultRoutes } from "./routes/adultRoutes";
 import { ErrorHandler } from "./errorHandlerService";
 import { LogRoutes } from "./routes/logRoutes";
 
@@ -31,6 +33,8 @@ class App {
     public app: express.Application;
     public peopleRoutes: PeopleRoutes = new PeopleRoutes();
     public authRoutes: AuthRoutes = new AuthRoutes();
+    public userRoutes: UserRoutes = new UserRoutes();
+    public adultRoutes: AdultRoutes = new AdultRoutes();
     public errorHandler: ErrorHandler = new ErrorHandler();
 
     private connection;
@@ -40,6 +44,8 @@ class App {
         this.config();
         this.peopleRoutes.routes(this.app);
         this.authRoutes.routes(this.app);
+        this.userRoutes.routes(this.app);
+        this.adultRoutes.routes(this.app);
         this.errorHandler.routes(this.app);
 
         this.connection = DataBaseService.getInstance();

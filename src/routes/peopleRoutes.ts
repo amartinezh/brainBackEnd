@@ -16,6 +16,9 @@ export class PeopleRoutes {
         app.route('/user/get')
         .post(auth,this.peopleController.getPeople)
 
+        app.route('/people/get')
+        .post(auth,this.peopleController.getPeople)
+        
         app.route('/user/getById')
         .post(auth,this.peopleController.getPeopleById)
 

@@ -20,7 +20,6 @@
 import { LogEnum } from "./models/ETLBackEnd/log.enum";
 import * as socketio from "socket.io"
 import { LogDAO } from "./repository/IndustryBackDB/logDAO";
-import { ExternalPlatformGrowPos } from "./models/ETLBackEnd/external_platform";
 import { resolve } from "url";
 
 const axios = require('axios');

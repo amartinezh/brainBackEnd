@@ -1,10 +1,10 @@
 
 import {Request, Response, NextFunction} from "express";
-import { LogController } from "../controllers/logController";
+
 var cors = require('cors');
 export class LogRoutes { 
     
-    public logController: LogController = new LogController();
+    /*public logController: LogController = new LogController();
 
     public routes(app): void {   
         
@@ -16,6 +16,6 @@ export class LogRoutes {
         app.route('/log/get')
         .post(this.logController.getLog)
         
-    }
+    }*/
     
 }

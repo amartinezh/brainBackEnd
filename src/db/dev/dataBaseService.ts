@@ -73,7 +73,7 @@ export class DataBaseService {
             return DataBaseService.instance;
         } catch (error) {
             //this.log.insertLog(LogEnum.ERROR, `${DataBaseService.name} -> ${this.getInstance.name}: ${error}`)
-            console.log('An error occurred while the instance was returned ' + error + ` ${DataBaseService.name} -> ${this.getInstance.name}`);
+            console.log('An error occurred while the instance was returned DataBaseService' + error );
         }
     }
 

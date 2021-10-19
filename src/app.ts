@@ -25,6 +25,7 @@ import { PeopleRoutes } from "./routes/peopleRoutes";
 import { AuthRoutes } from "./routes/authRoutes";
 import { UserRoutes } from "./routes/userRoutes";
 import { AdultRoutes } from "./routes/adultRoutes";
+import { SessionRoutes } from "./routes/sessionRoutes";
 import { ErrorHandler } from "./errorHandlerService";
 import { LogRoutes } from "./routes/logRoutes";
 
@@ -35,6 +36,7 @@ class App {
     public authRoutes: AuthRoutes = new AuthRoutes();
     public userRoutes: UserRoutes = new UserRoutes();
     public adultRoutes: AdultRoutes = new AdultRoutes();
+    public sessionRoutes: SessionRoutes = new SessionRoutes();
     public errorHandler: ErrorHandler = new ErrorHandler();
 
     private connection;
@@ -46,6 +48,7 @@ class App {
         this.authRoutes.routes(this.app);
         this.userRoutes.routes(this.app);
         this.adultRoutes.routes(this.app);
+        this.sessionRoutes.routes(this.app);
         this.errorHandler.routes(this.app);
 
         this.connection = DataBaseService.getInstance();

@@ -24,6 +24,36 @@ export class SessionController {
 		}
 	}
 
+	public async insertExerciseSession(req: Request, res: Response, next) {
+		try {
+			res.send(await session.insertExerciseSession(req.body));
+		} catch (error) {
+			let err: ErrorEnum = new Error(error);
+			err.status = 400
+			next(err);
+			console.log(
+				"An error occurred while inserting exercise-session :" +
+				error +
+				`: ${SessionController.name} -> insertExerciseSession`
+			);
+		}
+	}
+
+	public async insertMediaExercise(req: Request, res: Response, next) {
+		try {
+			res.send(await session.insertMediaExercise(req.body));
+		} catch (error) {
+			let err: ErrorEnum = new Error(error);
+			err.status = 400
+			next(err);
+			console.log(
+				"An error occurred while inserting media-exercise :" +
+				error +
+				`: ${SessionController.name} -> insertMediaExercise`
+			);
+		}
+	}
+
 	public async getSession(req: Request, res: Response, next) {
 		try {
 			res.send(await session.getSession());
@@ -50,6 +80,21 @@ export class SessionController {
 				"An error occurred while getting session :" +
 				error +
 				`: ${SessionController.name} -> getSessionById`
+			);
+		}
+	}
+
+	public async getSessionId(req: Request, res: Response, next) {
+		try {
+			res.send(await session.getSessionId(req.body));
+		} catch (error) {
+			let err: ErrorEnum = new Error(error);
+			err.status = 404
+			next(err);
+			console.log(
+				"An error occurred while getting session Id :" +
+				error +
+				`: ${SessionController.name} -> getSessionId`
 			);
 		}
 	}

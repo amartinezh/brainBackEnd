@@ -18,6 +18,15 @@ export class SessionRoutes {
         app.route('/session/getById')
         .post(auth,this.sessionController.getSessionById)
 
+        app.route('/session/getId')
+        .post(auth,this.sessionController.getSessionId)
+
+        app.route('/session/insertExerciseSession')
+        .post(auth,this.sessionController.insertExerciseSession)
+
+        app.route('/session/insertMediaExercise')
+        .post(auth,this.sessionController.insertMediaExercise)
+
         app.route('/session/update')
         .post(auth,this.sessionController.updateSession)
 

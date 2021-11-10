@@ -59,14 +59,13 @@ export class SessionDAO {
 
     public async insertMediaExercise(mediaExercise: MediaExercise){
         try {
-            for(let i =0; i<mediaExercise.id_media.length; i++){
-                this.connection.pool.query('INSERT INTO test.exercise_media (id_session, id_exercise, id_media, observation) VALUES ($1, $2, $3, $4)', [mediaExercise.id_session, mediaExercise.id_exercise[i], mediaExercise.id_media[i], mediaExercise.observation[i]], (error, results) => {
-                    if (error) {
-                      throw error
-                    }
-                    return results;
-                  })
-            } 
+            this.connection.pool.query('INSERT INTO test.exercise_media (id_session, id_exercise, id_media, observation) VALUES ($1, $2, $3, $4)', [mediaExercise.id_session, mediaExercise.id_exercise, mediaExercise.id_media, mediaExercise.observation], (error, results) => {
+            if (error) {
+                throw error
+            }
+            return results;
+            })
+            
         } catch (error) {
             this.log.insertLog(LogEnum.ERROR, `${SessionDAO.name} -> ${this.insertMediaExercise.name}: ${error}`)
             throw new Error(error)

@@ -23,7 +23,7 @@ import * as dotenv from "dotenv"
 
 dotenv.config();
 const PORT = `${process.env.PORT}`;
-const HOST = `${process.env.HOST}`
+const HOST = `${process.env.HOST}`;
 const server = http.createServer(app);
 
 server.listen(PORT, () => {

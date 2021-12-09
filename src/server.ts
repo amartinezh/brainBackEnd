@@ -22,8 +22,10 @@ import * as http from "http"
 import * as dotenv from "dotenv"
 
 dotenv.config();
-const PORT = `${process.env.PORT}`;
-const HOST = `${process.env.HOST}`;
+// const PORT = `${process.env.PORT}`;
+// const HOST = `${process.env.HOST}`;
+const PORT = 3000;
+const HOST = 'http://179.50.79.11';
 const server = http.createServer(app);
 
 server.listen(PORT, () => {
